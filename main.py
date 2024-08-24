@@ -48,9 +48,11 @@ def save_to_excel(data, kode_ref_pend):
                             pass
                     item.number_format = "0"
 
+        worksheet.auto_filter.ref = worksheet.dimensions
+
     print(f"Data saved to {filename}")
 
 
-kode_ref_pend = 5100144  # modify to your kode_ref_pend
+kode_ref_pend = 5109100  # modify to your kode_ref_pend
 data = fetch_data(kode_ref_pend)
 save_to_excel(data, kode_ref_pend)
