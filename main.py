@@ -26,8 +26,8 @@ def fetch_data(kode_ref_pend):
 def save_to_excel(data, kode_ref_pend):
     df = pd.DataFrame(data)
     filename = f"data_formasi_{kode_ref_pend}.xlsx"
-    # df.to_excel(filename, index=False)
 
+    # number formatting
     with pd.ExcelWriter(filename, engine="openpyxl") as writer:
         df.to_excel(writer, index=False, sheet_name="Data")
         worksheet = writer.sheets["Data"]
@@ -51,6 +51,6 @@ def save_to_excel(data, kode_ref_pend):
     print(f"Data saved to {filename}")
 
 
-kode_ref_pend = 5100144 # modify to your kode_ref_pend
+kode_ref_pend = 5100144  # modify to your kode_ref_pend
 data = fetch_data(kode_ref_pend)
 save_to_excel(data, kode_ref_pend)
